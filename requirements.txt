@@ -1,0 +1,7 @@
+Flask
+httpx
+pycryptodome
+asyncio
+threading
+requests
+mechanize
