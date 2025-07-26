@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 import asyncio
 import httpx
 from Crypto.Cipher import AES
@@ -51,21 +51,7 @@ def encrypt_api(plain_text):
     return cipher.encrypt(pad(bytes.fromhex(plain_text), AES.block_size)).hex()
 
 # بقية الكود يبقى كما هو...
-def handler(event, context):
-    from flask import jsonify
-    
-    id = event.get('queryStringParameters', {}).get('id')
-    if id:
-        thread = threading.Thread(target=run_async, args=(id,))
-        thread.start()
-        return {
-            'statusCode': 200,
-            'body': 'Proses...'
-        }
-    return {
-        'statusCode': 400,
-        'body': 'ID Tidak Valid'
-    }
+
 # وظيفة التشفير
 def encrypt_api(plain_text):
     key = bytes([89, 103, 38, 116, 99, 37, 68, 69, 117, 104, 54, 37, 90, 99, 94, 56])
