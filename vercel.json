@@ -8,12 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/add",
-      "dest": "app.py",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "app.py"
     }
   ]

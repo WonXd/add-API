@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request
 import asyncio
 import httpx
 from Crypto.Cipher import AES
@@ -130,4 +130,4 @@ def spam():
     return "ID Tidak Valid"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8398)
+    app.run()
